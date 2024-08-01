@@ -1,0 +1,35 @@
+Operadores lógicos em Java são utilizados para realizar operações lógicas em valores booleanos. Eles são comumente usados em expressões condicionais e estruturas de controle, como `if`, `while` e `for`. Aqui estão os principais operadores lógicos em Java:
+
+1. **E lógico (`&&`)**:
+   - Retorna `true` se ambas as expressões forem verdadeiras.
+   - Exemplo: `true && false` resulta em `false`.
+
+2. **OU lógico (`||`)**:
+   - Retorna `true` se pelo menos uma das expressões for verdadeira.
+   - Exemplo: `true || false` resulta em `true`.
+
+3. **NÃO lógico (`!`)**:
+   - Inverte o valor lógico da expressão.
+   - Exemplo: `!true` resulta em `false`.
+
+4. **E lógico bit a bit (`&`)**:
+   - Aplica a operação E bit a bit em dois números. Com valores booleanos, é semelhante ao `&&`, mas sempre avalia ambos os operandos.
+   - Exemplo: `true & false` resulta em `false`.
+
+5. **OU lógico bit a bit (`|`)**:
+   - Aplica a operação OU bit a bit em dois números. Com valores booleanos, é semelhante ao `||`, mas sempre avalia ambos os operandos.
+   - Exemplo: `true | false` resulta em `true`.
+
+6. **OU Exclusivo bit a bit (`^`)**:
+   - Retorna `true` se apenas um dos operandos for verdadeiro.
+   - Exemplo: `true ^ false` resulta em `true`.
+
+7. **Igual a (`==`)**:
+   - Verifica se dois valores são iguais.
+   - Exemplo: `5 == 5` resulta em `true`.
+
+8. **Diferente de (`!=`)**:
+   - Verifica se dois valores são diferentes.
+   - Exemplo: `5 != 4` resulta em `true`.
+
+Esses operadores são fundamentais para controlar o fluxo de programas e realizar comparações e decisões lógicas.

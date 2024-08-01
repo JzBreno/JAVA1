@@ -1,0 +1,29 @@
+O operador ternário em Java é uma maneira concisa de escrever uma expressão condicional que normalmente seria feita usando `if-else`. É uma expressão de três partes que pode ser usada para atribuir um valor com base em uma condição.
+
+A sintaxe do operador ternário é a seguinte:
+
+```java
+condição ? expressão1 : expressão2;
+```
+
+Aqui está como funciona:
+- **condição**: É uma expressão booleana que é avaliada como `true` ou `false`.
+- **expressão1**: É o valor retornado se a condição for `true`.
+- **expressão2**: É o valor retornado se a condição for `false`.
+
+### Exemplo
+
+Vamos ver um exemplo prático de uso do operador ternário:
+
+```java
+int numero = 10;
+String resultado = (numero > 0) ? "Positivo" : "Negativo ou Zero";
+System.out.println(resultado);
+```
+
+Neste exemplo:
+- A condição `(numero > 0)` é avaliada.
+- Se `numero` for maior que 0, `resultado` será `"Positivo"`.
+- Caso contrário, `resultado` será `"Negativo ou Zero"`.
+
+O operador ternário é especialmente útil para atribuir valores a variáveis de forma compacta e legível. No entanto, é importante usá-lo com moderação e apenas quando ele realmente melhora a clareza do código, já que expressões muito complexas podem dificultar a leitura.
