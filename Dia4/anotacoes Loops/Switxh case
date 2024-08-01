@@ -1,0 +1,105 @@
+Em Java, o `switch` é uma estrutura de controle que permite selecionar um bloco de código a ser executado com base no valor de uma variável.
+ Com o Java 12 e versões posteriores, o `switch` foi aprimorado com o "Switch Expressions", que oferece uma sintaxe mais compacta e flexível.
+  Vou mostrar ambos os estilos: o tradicional e o moderno.
+
+### Exemplo Tradicional de `switch`
+
+Este exemplo usa a sintaxe tradicional do `switch`:
+
+```java
+public class SwitchExample {
+    public static void main(String[] args) {
+        int day = 3; // O número do dia da semana (1 = Segunda-feira, 2 = Terça-feira, etc.)
+
+        switch (day) {
+            case 1:
+                System.out.println("Segunda-feira");
+                break;
+            case 2:
+                System.out.println("Terça-feira");
+                break;
+            case 3:
+                System.out.println("Quarta-feira");
+                break;
+            case 4:
+                System.out.println("Quinta-feira");
+                break;
+            case 5:
+                System.out.println("Sexta-feira");
+                break;
+            case 6:
+                System.out.println("Sábado");
+                break;
+            case 7:
+                System.out.println("Domingo");
+                break;
+            default:
+                System.out.println("Dia inválido");
+                break;
+        }
+    }
+}
+```
+
+### Exemplo Moderno de `switch` (Java 12+)
+
+A partir do Java 12, você pode usar expressões `switch` para uma sintaxe mais concisa. Aqui está um exemplo de como você pode usar o `switch` como uma expressão:
+
+```java
+public class SwitchExpressionExample {
+    public static void main(String[] args) {
+        int day = 3; // O número do dia da semana
+
+        String dayName = switch (day) {
+            case 1 -> "Segunda-feira";
+            case 2 -> "Terça-feira";
+            case 3 -> "Quarta-feira";
+            case 4 -> "Quinta-feira";
+            case 5 -> "Sexta-feira";
+            case 6 -> "Sábado";
+            case 7 -> "Domingo";
+            default -> "Dia inválido";
+        };
+
+        System.out.println(dayName);
+    }
+}
+```
+
+### Notas sobre o `switch` Moderno
+
+1. **Seta (`->`)**: A sintaxe `case ->` é usada para definir os valores retornados para cada caso.
+2. **Sem `break`**: Você não precisa usar `break` após cada caso, pois o `switch` moderno usa uma sintaxe de expressão.
+3. **Retorno de Valores**: O `switch` pode retornar um valor, que é atribuído à variável `dayName` neste exemplo.
+
+### Exemplo com `yield` (Java 13+)
+
+Se você precisar de um bloco de código mais complexo dentro do `switch`, pode usar `yield` para retornar um valor:
+
+```java
+public class SwitchYieldExample {
+    public static void main(String[] args) {
+        int day = 3; // O número do dia da semana
+
+        String dayName = switch (day) {
+            case 1 -> "Segunda-feira";
+            case 2 -> "Terça-feira";
+            case 3 -> {
+                // Bloco de código complexo
+                String name = "Quarta-feira";
+                yield name;
+            }
+            case 4 -> "Quinta-feira";
+            case 5 -> "Sexta-feira";
+            case 6 -> "Sábado";
+            case 7 -> "Domingo";
+            default -> "Dia inválido";
+        };
+
+        System.out.println(dayName);
+    }
+}
+```
+
+Escolha a versão do `switch` que melhor se adequa às suas necessidades e à versão do Java que você está usando.
+ Se precisar de mais detalhes ou tiver dúvidas sobre como aplicar o `switch` em um contexto específico, estou à disposição!
