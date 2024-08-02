@@ -1,0 +1,181 @@
+Métodos em Java são blocos de código que realizam uma tarefa específica e são definidos dentro de uma classe.
+ Eles podem ser classificados em métodos de instância (não estáticos) e métodos de classe (estáticos).
+  Aqui está um guia completo sobre métodos em Java:
+
+### Estrutura de um Método
+
+A estrutura básica de um método em Java é a seguinte:
+
+```java
+modificador_de_acesso tipo_de_retorno nome_do_metodo(parametros) {
+    // Corpo do método
+}
+```
+
+### Modificadores de Acesso
+
+- `public`: O método é acessível de qualquer lugar.
+- `protected`: O método é acessível dentro do mesmo pacote e por subclasses.
+- `default` (sem modificador): O método é acessível apenas dentro do mesmo pacote.
+- `private`: O método é acessível apenas dentro da mesma classe.
+
+### Tipos de Retorno
+
+- Pode ser um tipo de dado primitivo (como `int`, `double`, `boolean`) ou uma classe (como `String`, `ArrayList`).
+- `void`: Indica que o método não retorna nenhum valor.
+
+### Parâmetros
+
+- São as variáveis de entrada que o método aceita.
+- Podem ser de qualquer tipo de dado (primitivo ou objeto).
+
+### Exemplos de Métodos
+
+#### Método de Instância
+
+Métodos de instância operam em objetos de uma classe. Eles não usam a palavra-chave `static`.
+
+```java
+public class Pessoa {
+    private String nome;
+    private int idade;
+
+    // Método de instância
+    public void apresentar() {
+        System.out.println("Meu nome é " + nome + " e eu tenho " + idade + " anos.");
+    }
+
+    // Getters e Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+}
+```
+
+#### Método Estático
+
+Métodos estáticos pertencem à classe em si e podem ser chamados sem criar uma instância da classe.
+
+```java
+public class Utilitario {
+
+    // Método estático
+    public static int somar(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+### Chamando Métodos
+
+#### Chamando Métodos de Instância
+
+Para chamar um método de instância, você precisa criar um objeto da classe:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome("João");
+        pessoa.setIdade(30);
+        pessoa.apresentar(); // Chama o método de instância
+    }
+}
+```
+
+#### Chamando Métodos Estáticos
+
+Métodos estáticos são chamados diretamente pela classe:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int resultado = Utilitario.somar(10, 5); // Chama o método estático
+        System.out.println("Resultado da soma: " + resultado);
+    }
+}
+```
+
+### Métodos com Retorno
+
+Métodos podem retornar valores, que podem ser usados posteriormente no código:
+
+```java
+public class Calculadora {
+    public int multiplicar(int a, int b) {
+        return a * b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculadora calc = new Calculadora();
+        int resultado = calc.multiplicar(4, 5);
+        System.out.println("Resultado da multiplicação: " + resultado);
+    }
+}
+```
+
+### Métodos com Parâmetros
+
+Métodos podem aceitar parâmetros, que são valores fornecidos quando o método é chamado:
+
+```java
+public class Saudacao {
+    public void cumprimentar(String nome) {
+        System.out.println("Olá, " + nome + "!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Saudacao saudacao = new Saudacao();
+        saudacao.cumprimentar("Maria");
+    }
+}
+```
+
+### Sobrecarga de Métodos
+
+Java permite a criação de vários métodos com o mesmo nome,
+ desde que tenham diferentes listas de parâmetros (assinaturas diferentes):
+
+```java
+public class Matematica {
+    public int somar(int a, int b) {
+        return a + b;
+    }
+
+    public double somar(double a, double b) {
+        return a + b;
+    }
+
+    public int somar(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Matematica mat = new Matematica();
+        System.out.println(mat.somar(1, 2)); // Chama somar(int, int)
+        System.out.println(mat.somar(1.5, 2.5)); // Chama somar(double, double)
+        System.out.println(mat.somar(1, 2, 3)); // Chama somar(int, int, int)
+    }
+}
+```
+
+Esses são os conceitos básicos e algumas práticas comuns sobre métodos em Java.
+Se precisar de mais detalhes ou exemplos específicos, sinta-se à vontade para perguntar!

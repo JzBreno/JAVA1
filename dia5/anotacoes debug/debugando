@@ -1,0 +1,101 @@
+Depurar (ou "debugar") um programa Java envolve a identificação e correção de erros no código.
+ Ferramentas de depuração fornecem funcionalidades como pontos de interrupção (breakpoints),
+  inspeção de variáveis e controle de fluxo do programa. Aqui estão algumas técnicas e ferramentas comuns para depuração em Java:
+
+### Ferramentas de Depuração
+
+#### IDEs Populares
+
+1. **Eclipse**
+2. **IntelliJ IDEA**
+3. **NetBeans**
+
+Essas IDEs possuem ferramentas integradas de depuração que facilitam o processo.
+
+### Técnicas de Depuração
+
+#### 1. Uso de Print Statements
+Inserir declarações `System.out.println` no código para imprimir valores de variáveis em pontos específicos pode ajudar a rastrear o fluxo do programa.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 10;
+        System.out.println("Valor de a: " + a);
+        System.out.println("Valor de b: " + b);
+        int resultado = a + b;
+        System.out.println("Resultado: " + resultado);
+    }
+}
+```
+
+#### 2. Pontos de Interrupção (Breakpoints)
+Os breakpoints interrompem a execução do programa em uma linha específica, permitindo que você examine o estado do programa nesse ponto.
+
+##### Configurando Breakpoints
+
+**Eclipse**
+1. Clique na margem esquerda da linha onde deseja adicionar um breakpoint.
+2. Um ponto azul indica o breakpoint.
+
+**IntelliJ IDEA**
+1. Clique na margem esquerda da linha onde deseja adicionar um breakpoint.
+2. Um círculo vermelho indica o breakpoint.
+
+**NetBeans**
+1. Clique na margem esquerda da linha onde deseja adicionar um breakpoint.
+2. Um ponto vermelho indica o breakpoint.
+
+#### 3. Passo a Passo (Step Over, Step Into, Step Out)
+- **Step Over**: Executa a próxima linha de código sem entrar em métodos.
+- **Step Into**: Entra no método chamado na próxima linha de código.
+- **Step Out**: Sai do método atual e retorna ao método chamador.
+
+#### 4. Inspeção de Variáveis
+Durante a depuração, você pode inspecionar os valores das variáveis na janela de variáveis da IDE.
+
+### Exemplo Prático
+
+#### Código para Depuração
+
+```java
+public class Calculadora {
+    public int somar(int a, int b) {
+        return a + b;
+    }
+
+    public int subtrair(int a, int b) {
+        return a - b;
+    }
+
+    public static void main(String[] args) {
+        Calculadora calc = new Calculadora();
+        int resultadoSoma = calc.somar(10, 5);
+        int resultadoSubtracao = calc.subtrair(10, 5);
+        System.out.println("Resultado da soma: " + resultadoSoma);
+        System.out.println("Resultado da subtração: " + resultadoSubtracao);
+    }
+}
+```
+
+#### Passos para Depuração
+
+1. **Adicione Breakpoints**: Coloque breakpoints nas linhas dentro dos métodos `somar` e `subtrair`.
+2. **Inicie a Depuração**: Inicie o modo de depuração na sua IDE.
+    - **Eclipse**: Clique com o botão direito no arquivo -> `Debug As` -> `Java Application`.
+    - **IntelliJ IDEA**: Clique com o botão direito no arquivo -> `Debug`.
+    - **NetBeans**: Clique com o botão direito no arquivo -> `Debug`.
+3. **Inspecione as Variáveis**: Quando a execução parar no breakpoint, inspecione as variáveis na janela de variáveis.
+4. **Use Step Over/Into**: Use os botões de Step Over (`F6`), Step Into (`F5`) e Step Out (`F7`) para controlar a execução do código.
+
+### Dicas Adicionais
+
+- **Verificação de Exceções**: Verifique exceções no console e use breakpoints em exceções para entender melhor os erros.
+- **Expressões de Observação (Watch Expressions)**: Adicione expressões de observação para monitorar o valor de variáveis específicas ao longo da execução.
+- **Logging**: Use frameworks de logging como `java.util.logging` ou `Log4j` para obter informações detalhadas sobre a execução do programa.
+
+### Conclusão
+
+A depuração é uma habilidade essencial para qualquer desenvolvedor e aprender a utilizar as ferramentas e técnicas apropriadas pode economizar muito tempo e esforço na resolução de problemas no código.
+ Se precisar de ajuda com algum aspecto específico da depuração em Java ou tiver dúvidas adicionais, sinta-se à vontade para perguntar!
