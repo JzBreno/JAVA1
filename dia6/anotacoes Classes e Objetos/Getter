@@ -1,0 +1,66 @@
+Em Java, getters (também conhecidos como métodos de acesso) são métodos usados para recuperar o valor de um atributo privado de uma classe. Eles são parte essencial do princípio de encapsulamento, que protege os dados internos de uma classe e só permite acesso controlado a eles.
+
+### Criando um Getter
+
+Um getter é um método público que retorna o valor de um atributo privado. A convenção de nomenclatura para um getter é usar a palavra "get" seguida do nome do atributo com a primeira letra em maiúscula.
+
+#### Exemplo de Getter
+
+Vamos considerar a classe `Pessoa` com atributos privados `nome` e `idade`.
+
+```java
+public class Pessoa {
+    private String nome;
+    private int idade;
+
+    // Construtor
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    // Getter para o atributo nome
+    public String getNome() {
+        return nome;
+    }
+
+    // Getter para o atributo idade
+    public int getIdade() {
+        return idade;
+    }
+
+    public void apresentar() {
+        System.out.println("Meu nome é " + nome + " e eu tenho " + idade + " anos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um objeto da classe Pessoa
+        Pessoa pessoa = new Pessoa("João", 30);
+
+        // Usando getters para acessar atributos privados
+        System.out.println("Nome: " + pessoa.getNome());
+        System.out.println("Idade: " + pessoa.getIdade());
+
+        // Chamando um método de instância
+        pessoa.apresentar();
+    }
+}
+```
+
+### Características dos Getters
+
+- **Public**: Getters são geralmente públicos para que possam ser acessados fora da classe.
+- **Retorno**: Eles retornam o tipo do atributo que estão acessando.
+- **Sem Parâmetros**: Normalmente, getters não aceitam parâmetros.
+
+### Benefícios dos Getters
+
+1. **Encapsulamento**: Proteger dados privados e controlar o acesso a eles.
+2. **Flexibilidade**: Permite alterar a implementação interna da classe sem afetar o código externo que usa a classe.
+3. **Validação e Processamento**: Pode-se adicionar lógica de validação ou processamento antes de retornar o valor do atributo.
+
+### Conclusão
+
+Getters são uma prática comum e recomendada em Java para acessar atributos privados de uma classe. Eles ajudam a manter o encapsulamento e a segurança dos dados, permitindo ao mesmo tempo acesso controlado aos atributos. Se precisar de mais detalhes ou exemplos específicos, sinta-se à vontade para perguntar!

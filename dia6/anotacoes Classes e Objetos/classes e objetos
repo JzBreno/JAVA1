@@ -1,0 +1,196 @@
+### Classes e Objetos em Java
+
+Em Java, uma classe é um modelo (ou blueprint) que define a estrutura e o comportamento de objetos. Um objeto é uma instância de uma classe, contendo estados (atributos) e comportamentos (métodos) definidos pela classe.
+
+### Definindo uma Classe
+
+Uma classe é definida usando a palavra-chave `class`, seguida pelo nome da classe e um par de chaves que engloba os atributos e métodos da classe.
+
+```java
+public class Pessoa {
+    // Atributos (variáveis de instância)
+    private String nome;
+    private int idade;
+
+    // Construtor
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    // Métodos (comportamentos)
+    public void apresentar() {
+        System.out.println("Meu nome é " + nome + " e eu tenho " + idade + " anos.");
+    }
+
+    // Getters e Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+}
+```
+
+### Criando um Objeto
+
+Para criar um objeto de uma classe, você usa a palavra-chave `new`, seguida pelo nome da classe e um par de parênteses, que pode conter argumentos se a classe tiver um construtor.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Criando um objeto da classe Pessoa
+        Pessoa pessoa1 = new Pessoa("João", 30);
+
+        // Chamando métodos no objeto
+        pessoa1.apresentar();
+
+        // Acessando e modificando atributos via getters e setters
+        pessoa1.setIdade(31);
+        System.out.println("Nova idade: " + pessoa1.getIdade());
+    }
+}
+```
+
+### Componentes de uma Classe
+
+1. **Atributos (Variáveis de Instância)**:
+   - Representam o estado de um objeto.
+   - Definidos dentro da classe mas fora de qualquer método.
+
+2. **Construtor**:
+   - Um método especial que é chamado quando um objeto é criado.
+   - Inicializa os atributos do objeto.
+
+3. **Métodos**:
+   - Definem os comportamentos que os objetos podem realizar.
+   - Podem ter modificadores de acesso (`public`, `private`, etc.), tipo de retorno, nome do método e parâmetros.
+
+4. **Getters e Setters**:
+   - Métodos para acessar e modificar os atributos privados.
+   - Seguem a convenção de nomeação `getNomeAtributo` e `setNomeAtributo`.
+
+### Encapsulamento
+
+Encapsulamento é uma das principais características da programação orientada a objetos e é usado para proteger os dados. Atributos são geralmente definidos como `private` e acessados via métodos `public` chamados getters e setters.
+
+### Exemplo Completo
+
+Aqui está um exemplo completo ilustrando uma classe `Pessoa`, a criação de um objeto e a chamada de seus métodos:
+
+```java
+// Definição da classe Pessoa
+public class Pessoa {
+    // Atributos
+    private String nome;
+    private int idade;
+
+    // Construtor
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    // Método para apresentar a pessoa
+    public void apresentar() {
+        System.out.println("Meu nome é " + nome + " e eu tenho " + idade + " anos.");
+    }
+
+    // Getters e Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+}
+
+// Classe principal para criar e manipular objetos
+public class Main {
+    public static void main(String[] args) {
+        // Criando um objeto da classe Pessoa
+        Pessoa pessoa1 = new Pessoa("João", 30);
+
+        // Chamando métodos no objeto
+        pessoa1.apresentar();
+
+        // Acessando e modificando atributos via getters e setters
+        pessoa1.setIdade(31);
+        System.out.println("Nova idade: " + pessoa1.getIdade());
+    }
+}
+```
+
+### Herança
+
+Herança é um mecanismo que permite criar uma nova classe a partir de uma classe existente. A nova classe, chamada de subclasse, herda os atributos e métodos da classe existente, chamada de superclasse.
+
+#### Exemplo de Herança
+
+```java
+// Classe base (superclasse)
+public class Animal {
+    private String nome;
+
+    public Animal(String nome) {
+        this.nome = nome;
+    }
+
+    public void emitirSom() {
+        System.out.println("Animal emitindo som");
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+}
+
+// Subclasse
+public class Cachorro extends Animal {
+    public Cachorro(String nome) {
+        super(nome);
+    }
+
+    // Sobrescrevendo o método emitirSom
+    @Override
+    public void emitirSom() {
+        System.out.println("Cachorro latindo");
+    }
+}
+
+// Classe principal
+public class Main {
+    public static void main(String[] args) {
+        Cachorro cachorro = new Cachorro("Rex");
+        cachorro.emitirSom();  // Cachorro latindo
+        System.out.println("Nome do cachorro: " + cachorro.getNome());
+    }
+}
+```
+
+### Conclusão
+
+Classes e objetos são os blocos fundamentais da programação orientada a objetos em Java. Compreender como defini-los e utilizá-los é crucial para desenvolver programas Java eficientes e organizados. Se precisar de mais detalhes ou tiver dúvidas específicas, sinta-se à vontade para perguntar!

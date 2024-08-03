@@ -1,0 +1,152 @@
+Um construtor em Java é um método especial usado para inicializar objetos. O construtor é chamado quando um objeto de uma classe é criado. Ele tem o mesmo nome da classe e não tem um tipo de retorno, nem mesmo `void`.
+
+### Tipos de Construtores
+
+1. **Construtor Padrão (Default Constructor)**:
+   - Se você não definir nenhum construtor, o compilador Java cria um construtor padrão que não faz nada, além de inicializar os atributos da classe com seus valores padrão (0, `null`, etc.).
+
+2. **Construtor Parametrizado**:
+   - Um construtor que aceita argumentos para inicializar os atributos do objeto com valores específicos fornecidos durante a criação do objeto.
+
+### Exemplo de Construtor
+
+#### Construtor Padrão
+
+Se você não definir um construtor, o Java fornece um construtor padrão.
+
+```java
+public class Pessoa {
+    private String nome;
+    private int idade;
+
+    // Construtor padrão (fornecido pelo compilador)
+    public Pessoa() {
+    }
+
+    public void apresentar() {
+        System.out.println("Meu nome é " + nome + " e eu tenho " + idade + " anos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um objeto usando o construtor padrão
+        Pessoa pessoa1 = new Pessoa();
+        pessoa1.apresentar();  // Output: Meu nome é null e eu tenho 0 anos.
+    }
+}
+```
+
+#### Construtor Parametrizado
+
+Você pode definir um construtor que aceita parâmetros para inicializar os atributos da classe.
+
+```java
+public class Pessoa {
+    private String nome;
+    private int idade;
+
+    // Construtor parametrizado
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public void apresentar() {
+        System.out.println("Meu nome é " + nome + " e eu tenho " + idade + " anos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um objeto usando o construtor parametrizado
+        Pessoa pessoa1 = new Pessoa("João", 30);
+        pessoa1.apresentar();  // Output: Meu nome é João e eu tenho 30 anos.
+    }
+}
+```
+
+### Construtores Sobrecarga
+
+Você pode ter múltiplos construtores na mesma classe, desde que cada um tenha uma assinatura diferente (diferente número ou tipo de parâmetros). Isso é chamado de sobrecarga de construtor.
+
+```java
+public class Pessoa {
+    private String nome;
+    private int idade;
+
+    // Construtor padrão
+    public Pessoa() {
+    }
+
+    // Construtor parametrizado
+    public Pessoa(String nome) {
+        this.nome = nome;
+    }
+
+    // Outro construtor parametrizado
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public void apresentar() {
+        System.out.println("Meu nome é " + nome + " e eu tenho " + idade + " anos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Usando diferentes construtores
+        Pessoa pessoa1 = new Pessoa();
+        Pessoa pessoa2 = new Pessoa("Maria");
+        Pessoa pessoa3 = new Pessoa("Pedro", 25);
+
+        pessoa1.apresentar();  // Output: Meu nome é null e eu tenho 0 anos.
+        pessoa2.apresentar();  // Output: Meu nome é Maria e eu tenho 0 anos.
+        pessoa3.apresentar();  // Output: Meu nome é Pedro e eu tenho 25 anos.
+    }
+}
+```
+
+### Construtores e Herança
+
+Quando você trabalha com herança, o construtor da classe base (superclasse) é chamado automaticamente quando o objeto da classe derivada (subclasse) é criado. Você pode chamar explicitamente o construtor da superclasse usando a palavra-chave `super`.
+
+```java
+// Superclasse
+public class Animal {
+    private String nome;
+
+    public Animal(String nome) {
+        this.nome = nome;
+    }
+
+    public void emitirSom() {
+        System.out.println("Animal emitindo som");
+    }
+}
+
+// Subclasse
+public class Cachorro extends Animal {
+    public Cachorro(String nome) {
+        super(nome);  // Chamando o construtor da superclasse
+    }
+
+    @Override
+    public void emitirSom() {
+        System.out.println("Cachorro latindo");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Cachorro cachorro = new Cachorro("Rex");
+        cachorro.emitirSom();  // Output: Cachorro latindo
+    }
+}
+```
+
+### Conclusão
+
+Construtores são fundamentais para a criação e inicialização de objetos em Java. Eles permitem que você configure o estado inicial de um objeto de maneira controlada e são essenciais para a implementação de conceitos de herança. Se tiver mais perguntas ou precisar de exemplos adicionais, sinta-se à vontade para perguntar!

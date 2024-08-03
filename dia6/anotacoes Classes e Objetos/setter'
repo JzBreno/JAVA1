@@ -1,0 +1,142 @@
+Em Java, setters (também conhecidos como métodos mutadores) são métodos usados para modificar o valor de um atributo privado de uma classe. Assim como os getters, os setters são fundamentais para o princípio de encapsulamento, permitindo controle sobre como os valores dos atributos são modificados.
+
+### Criando um Setter
+
+Um setter é um método público que aceita um argumento e define o valor de um atributo privado. A convenção de nomenclatura para um setter é usar a palavra "set" seguida pelo nome do atributo com a primeira letra em maiúscula.
+
+#### Exemplo de Setter
+
+Vamos considerar a classe `Pessoa` com atributos privados `nome` e `idade` e adicionar métodos setters para ambos.
+
+```java
+public class Pessoa {
+    private String nome;
+    private int idade;
+
+    // Construtor
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    // Getter para o atributo nome
+    public String getNome() {
+        return nome;
+    }
+
+    // Setter para o atributo nome
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    // Getter para o atributo idade
+    public int getIdade() {
+        return idade;
+    }
+
+    // Setter para o atributo idade
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public void apresentar() {
+        System.out.println("Meu nome é " + nome + " e eu tenho " + idade + " anos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um objeto da classe Pessoa
+        Pessoa pessoa = new Pessoa("João", 30);
+
+        // Usando getters para acessar atributos privados
+        System.out.println("Nome: " + pessoa.getNome());
+        System.out.println("Idade: " + pessoa.getIdade());
+
+        // Usando setters para modificar atributos privados
+        pessoa.setNome("Maria");
+        pessoa.setIdade(25);
+
+        // Verificando as alterações
+        System.out.println("Nome: " + pessoa.getNome());
+        System.out.println("Idade: " + pessoa.getIdade());
+
+        // Chamando um método de instância
+        pessoa.apresentar();
+    }
+}
+```
+
+### Características dos Setters
+
+- **Public**: Setters são geralmente públicos para que possam ser acessados fora da classe.
+- **Void**: Eles geralmente não retornam nenhum valor (`void`).
+- **Aceitam Parâmetros**: Setters aceitam um parâmetro que é usado para definir o valor do atributo.
+
+### Benefícios dos Setters
+
+1. **Encapsulamento**: Protegem dados privados e controlam como os valores dos atributos são modificados.
+2. **Validação e Controle**: Permitem adicionar lógica de validação ou controle antes de modificar o valor do atributo.
+3. **Flexibilidade**: Permitem mudar a implementação interna da classe sem afetar o código externo que usa a classe.
+
+#### Exemplo de Validação em um Setter
+
+```java
+public class Pessoa {
+    private String nome;
+    private int idade;
+
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        if (nome != null && !nome.trim().isEmpty()) {
+            this.nome = nome;
+        } else {
+            System.out.println("Nome inválido!");
+        }
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        if (idade > 0) {
+            this.idade = idade;
+        } else {
+            System.out.println("Idade inválida!");
+        }
+    }
+
+    public void apresentar() {
+        System.out.println("Meu nome é " + nome + " e eu tenho " + idade + " anos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Pessoa pessoa = new Pessoa("João", 30);
+
+        pessoa.setNome("");
+        pessoa.setIdade(-5);
+
+        pessoa.apresentar();
+
+        pessoa.setNome("Maria");
+        pessoa.setIdade(25);
+
+        pessoa.apresentar();
+    }
+}
+```
+
+### Conclusão
+
+Setters são uma prática comum e recomendada em Java para modificar atributos privados de uma classe. Eles ajudam a manter o encapsulamento e a segurança dos dados, permitindo controle sobre como os valores dos atributos são modificados. Se precisar de mais detalhes ou exemplos específicos, sinta-se à vontade para perguntar!
